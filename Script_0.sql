@@ -1,19 +1,14 @@
 CREATE DATABASE nhsclinic;
 USE nhsclinic;
 
--- ==========================================
--- CLINIC TABLE
--- ==========================================
-CREATE TABLE Clinic (
+
+CREATE TABLE clinic (
     ClinicID INT AUTO_INCREMENT PRIMARY KEY,
     ClinicName VARCHAR(100) NOT NULL,
     ClinicAddress VARCHAR(255) NOT NULL
 );
 
--- ==========================================
--- DOCTOR TABLE
--- ==========================================
-CREATE TABLE Doctor (
+CREATE TABLE doctor (
     DoctorID INT AUTO_INCREMENT PRIMARY KEY,
     DoctorName VARCHAR(100) NOT NULL,
     Specialty VARCHAR(100),
@@ -24,10 +19,8 @@ CREATE TABLE Doctor (
         ON UPDATE CASCADE
 );
 
--- ==========================================
--- PATIENT TABLE
--- ==========================================
-CREATE TABLE Patient (
+
+CREATE TABLE patient (
     PatientID INT AUTO_INCREMENT PRIMARY KEY,
     PatientName VARCHAR(100) NOT NULL,
     Address VARCHAR(255),
@@ -36,10 +29,8 @@ CREATE TABLE Patient (
     Email VARCHAR(100)
 );
 
--- ==========================================
--- APPOINTMENT TABLE
--- ==========================================
-CREATE TABLE Appointment (
+
+CREATE TABLE appointment (
     AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
     PatientID INT NOT NULL,
     DoctorID INT NOT NULL,
@@ -64,43 +55,22 @@ CREATE TABLE Appointment (
         ON UPDATE CASCADE
 );
 
--- ==========================================
--- MEDICATION TABLE
--- ==========================================
-CREATE TABLE Medication (
+CREATE TABLE medication (
     MedicationID INT AUTO_INCREMENT PRIMARY KEY,
     MedicationName VARCHAR(100) NOT NULL,
     Dosage VARCHAR(50)
 );
 
--- ==========================================
--- PATIENT MEDICATION TABLE
--- ==========================================
-CREATE TABLE PatientMedication (
-    PatientMedicationID INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE treatment (
+    TreatmentID INT AUTO_INCREMENT PRIMARY KEY,
     PatientID INT NOT NULL,
-    MedicationID INT NOT NULL,
+    TreatmentName VARCHAR(100) NOT NULL,
     StartDate DATE,
 
     FOREIGN KEY (PatientID)
         REFERENCES Patient(PatientID)
         ON DELETE CASCADE
-        ON UPDATE CASCADE,
-
-    FOREIGN KEY (MedicationID)
-        REFERENCES Medication(MedicationID)
-        ON DELETE CASCADE
         ON UPDATE CASCADE
-);
-
--- ==========================================
--- AUDIT LOG TABLE
--- (FOR TRIGGER DEMONSTRATION)
--- ==========================================
-CREATE TABLE AuditLog (
-    LogID INT AUTO_INCREMENT PRIMARY KEY,
-    ActionTaken VARCHAR(255),
-    ActionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- CLINICS
@@ -126,7 +96,7 @@ VALUES
 ('David Green','789 Park Lane','1978-02-15','07333333333','david@email.com');
 
 -- MEDICATIONS
-INSERT INTO Medication
+INSERT INTO medication
 (MedicationName, Dosage)
 VALUES
 ('Aspirin','100mg'),
