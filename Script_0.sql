@@ -1,7 +1,6 @@
 CREATE DATABASE nhsclinic;
 USE nhsclinic;
 
-
 CREATE TABLE clinic (
     ClinicID INT AUTO_INCREMENT PRIMARY KEY,
     ClinicName VARCHAR(100) NOT NULL,
@@ -19,7 +18,6 @@ CREATE TABLE doctor (
         ON UPDATE CASCADE
 );
 
-
 CREATE TABLE patient (
     PatientID INT AUTO_INCREMENT PRIMARY KEY,
     PatientName VARCHAR(100) NOT NULL,
@@ -28,7 +26,6 @@ CREATE TABLE patient (
     Phone VARCHAR(20),
     Email VARCHAR(100)
 );
-
 
 CREATE TABLE appointment (
     AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
@@ -73,7 +70,7 @@ CREATE TABLE treatment (
         ON UPDATE CASCADE
 );
 
--- CLINICS
+--CLINIC
 INSERT INTO Clinic (ClinicName, ClinicAddress)
 VALUES
 ('Clinic A','10 Main Street'),
@@ -113,9 +110,9 @@ VALUES
 (3,3,3,'2026-06-03','09:30:00','Review');
 
 -- PATIENT MEDICATIONS
-INSERT INTO PatientMedication
-(PatientID, MedicationID, StartDate)
+INSERT INTO Treatment
+(TreatmentID, PatientID,Treatmentname, StartDate)
 VALUES
-(1,1,'2026-01-01'),
-(1,3,'2026-02-01'),
-(2,2,'2026-03-01');
+(135,1, 'Follow up', '2026-01-01'),
+(142,3,'First Visit', '2026-02-01'),
+(273,2,'First Visit''2026-03-01');
