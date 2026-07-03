@@ -78,14 +78,14 @@ VALUES
 ('Clinic C','45 King Street');
 
 -- DOCTORS
-INSERT INTO Doctor (DoctorName, Specialty, ClinicID)
+INSERT INTO doctor (DoctorName, Specialty, ClinicID)
 VALUES
 ('Dr Adams','Cardiology',1),
 ('Dr Brown','General Practice',2),
 ('Dr Wilson','Neurology',3);
 
 -- PATIENTS
-INSERT INTO Patient
+INSERT INTO patient
 (PatientName, Address, DateOfBirth, Phone, Email)
 VALUES
 ('John Smith','123 Hill Road','1985-05-12','07111111111','john@email.com'),
@@ -101,7 +101,7 @@ VALUES
 ('Beta Blocker','50mg');
 
 -- APPOINTMENTS
-INSERT INTO Appointment
+INSERT INTO appointment
 (PatientID, DoctorID, ClinicID,
 AppointmentDate, AppointmentTime, Notes)
 VALUES
@@ -110,7 +110,7 @@ VALUES
 (3,3,3,'2026-06-03','09:30:00','Review');
 
 -- PATIENT MEDICATIONS
-INSERT INTO Treatment
+INSERT INTO treatment
 (TreatmentID, PatientID,Treatmentname, StartDate)
 VALUES
 (135,1, 'Follow up', '2026-01-01'),
