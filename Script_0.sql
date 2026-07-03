@@ -109,7 +109,7 @@ VALUES
 (2,2,2,'2026-06-02','11:00:00','First Visit'),
 (3,3,3,'2026-06-03','09:30:00','Review');
 
--- PATIENT MEDICATIONS
+-- TREATMENT
 INSERT INTO treatment
 (TreatmentID, PatientID,Treatmentname, StartDate)
 VALUES
