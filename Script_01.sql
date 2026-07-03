@@ -40,8 +40,8 @@ VALUES
 
 --TRTEATMENT
 INSERT INTO treatment
-(PatientID, TreatmentID, TreatmentName StartDate)
+(TreatmentID, PatientID,Treatmentname, StartDate)
 VALUES
-(1,1,'2026-01-01'),
-(1,3,'2026-02-01'),
-(2,2,'2026-03-01');
+(135,1, 'Follow up', '2026-01-01'),
+(142,3,'First Visit', '2026-02-01'),
+(273,2,'First Visit''2026-03-01');
